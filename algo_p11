@@ -1,0 +1,105 @@
+#include <stdio.h>
+int main()
+{
+int pilih,i,j,a[2][2],b[2][2],c[2][2];
+
+printf("###################\n");
+printf("#Riski Adrianyah  #\n");
+printf("#12112076         #\n");
+printf("###################");
+for(;;)
+{
+printf("\nPerhitungan Matriks 2X2");
+printf("\n|======================|\n");
+printf("|1. Menjumlah Matriks  |\n");
+printf("|2. Mengalikan Matriks |\n");
+printf("|0. Keluar             |\n");
+printf("|======================|\n\n");
+printf("Pilihan (0, 1 atau 2) ? ");scanf("%d",&pilih);
+	
+switch (pilih)
+{
+case 1:
+	goto INPUT;/*statmen melompat*/
+	break;
+case 2:
+	goto INPUT;/*statmen melompat*/
+    break;
+case 0:
+	goto SELESAI;/*statmen melompat*/
+    break;
+default:
+	goto ULANG;/*statmen melompat*/
+    break;
+}
+	INPUT:
+		printf("\n\nmasukan nilai Matrik A\n");
+
+		for(i=0;i<=1;i++)		/*perualangan i untuk baris matrik*/
+			{		/*awalnya i=0*/
+				for(j=0;j<=1;j++)	/*perualangan j untuk kolom matrik*/
+				{	/*awalnya j=0*/
+					printf("[%d][%d] = ",i,j);
+					scanf("%d",&a[i][j]);
+					/*inputan disimpan sesuai perulangan yang dimulai dari
+					 * i=0 j=0 atau [0][0] lalu i=0 j=1 atau [0][1]
+					 * setelah for j habis masuk kembali ke for i dimana
+					 * i=1 j=0 atau [1][0] lalu i=1 j=1 atau [1][1] */
+				}
+			}
+		printf("\nmasukan nilai Matrik B\n");
+
+		for(i=0;i<=1;i++)
+			{
+				for(j=0;j<=1;j++)
+				{
+					printf("[%d][%d] = ",i,j);scanf("%d",&b[i][j]);
+				}
+			}
+		if(pilih == 1) /*jika pilih 1 maka*/
+			goto TAMBAH; /*lompat ke TAMBAH untuk dihitung*/
+		else if(pilih == 2)
+			goto KALI;
+	continue; /*statmen melanjutkan*/
+	
+	TAMBAH:
+		c[0][0]=a[0][0]+b[0][0]; c[0][1]=a[0][1]+b[0][1];	
+		c[1][0]=a[1][0]+b[1][0]; c[1][1]=a[1][1]+b[1][1];
+		printf("\nHasil Penjumlahan Matriks adalah");
+		goto OUTPUT; /*lompat ke OUTPT untuk ditampilkan*/
+	continue; /*statmen melanjutkan*/
+		
+	KALI:
+		c[0][0]=(a[0][0]*b[0][0])+(a[1][0]*b[1][0]); c[0][1]=(a[0][0]*b[0][1])+(a[1][0]*b[1][1]);
+		c[1][0]=(a[1][0]*b[0][0])+(a[1][1]*b[1][0]); c[1][1]=(a[1][0]*b[0][1])+(a[1][1]*b[1][1]);
+		printf("\nHasil Perkalian Matriks adalah");
+		goto OUTPUT;
+	continue; /*statmen melanjutkan*/
+	
+	OUTPUT:
+		for(i=0;i<=1;i++)
+		{
+			printf("\n");
+			for(j=0;j<=1;j++)
+			{
+				printf(" %d  ",c[i][j]);
+				/*array yang tersimpan pada array c akan dipanggil sesuai perulangan yang dimulai dari
+				 * i=0 j=0 atau [0][0] lalu i=0 j=1 atau [0][1]
+				 * setelah for j habis masuk kembali ke for i dimana
+				 * i=1 j=0 atau [1][0] lalu i=1 j=1 atau [1][1] */
+			}
+		}
+		printf("\n");
+	continue; /*statmen melanjutkan*/
+	
+	ULANG:
+		printf("\n<========Ulangin pilihan============>\n");
+	continue; /*statmen melanjutkan*/
+	
+	SELESAI:
+		printf("Sampai Jumpa");
+	break; /*statmen menghentikan*/
+		
+}
+return 0;
+}
